@@ -1,5 +1,5 @@
 *{
-    font-family: 'Quicksand', sans-serif;
+    font-family: 'Montserrat', sans-serif;
     font-size: 16px;
     color: #222;
 }
@@ -9,28 +9,33 @@ html, body{
     text-align: center;
 }
 .header{
-    background-image: url(./img/heroEzeMabe.jpg);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+    background-image: url(./img/hero.jpeg);
     background-repeat: no-repeat;
     background-position: 50% 25%;
     background-attachment: scroll;
     background-size: cover;
-    height: 40vh;
-    margin: 0;
-    padding-top: 60vh;
 }
 .heading {
     color: #ffffff;
     display: block;
-    font-family: 'Caveat', cursive;
-    font-size: 6em;
+    font-family: 'Montserrat';
+    font-size: 4em;
     font-weight: normal;
     text-shadow: 0 0 10px #000;
 }
 .heading-subtext{
     color: #fff;
     display: block;
-    font-family: 'Caveat', cursive;
+    font-family: 'Montserrat';
     font-size: .6em;
+    margin-bottom: 1em;
 }
 .fixed-button{
     background: rgba(20,20,20,.5);
