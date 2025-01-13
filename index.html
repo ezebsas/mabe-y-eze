@@ -8,6 +8,32 @@
     <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <style>
+      /* Estilo para las barras de transición */
+      .transition-bar {
+        position: fixed;
+        top: 0;
+        width: 33.33%;
+        height: 0; /* Inicialmente en 0 para el efecto de despliegue */
+        background-color: #dee7e6; /* Color de fondo de las barras grises */
+        z-index: 9996; /* Debajo de la introducción */
+      }
+      .bar1 { left: 0; }
+      .bar2 { left: 33.33%; }
+      .bar3 { left: 66.66%; }
+
+      /* Estilo para las barras blancas */
+      .white-bar {
+        position: fixed;
+        top: 0;
+        width: 33.33%;
+        height: 0; /* Inicialmente en 0 */
+        background-color: white; /* Color de fondo blanco */
+        z-index: 9995; /* Debajo de las barras grises */
+      }
+      .white-bg1 { left: 0; }
+      .white-bg2 { left: 33.33%; }
+      .white-bg3 { left: 66.66%; }
+
       /* Estilo para la introducción */
       .intro {
         position: fixed;
@@ -18,13 +44,26 @@
         background-image: url('./img/intro-image.jpg'); /* Cambia la ruta a tu imagen */
         background-color: #dee7e6; /* Color de fondo sólido */
         background-repeat: no-repeat; /* Evitar que la imagen se repita */
-        background-size: contain; /* Cambiado a contain para evitar recortes y estiramientos */
+        background-size: cover; /* Cambiado a cover para cubrir toda la pantalla */
         background-position: center; /* Centrar la imagen */
-        z-index: 9999; /* Asegúrate de que esté por encima de otros elementos */
+        z-index: 9998; /* Asegúrate de que esté por encima de otros elementos */
+      }
+
+      /* Estilo para el contenido normal */
+      .content {
+        display: none; /* Ocultar el contenido normal inicialmente */
       }
     </style>
   </head>
   <body>
+    <div class="white-bar white-bg1" id="whiteBar1"></div> <!-- Barra blanca 1 -->
+    <div class="white-bar white-bg2" id="whiteBar2"></div> <!-- Barra blanca 2 -->
+    <div class="white-bar white-bg3" id="whiteBar3"></div> <!-- Barra blanca 3 -->
+    
+    <div class="transition-bar bar1"></div>
+    <div class="transition-bar bar2"></div>
+    <div class="transition-bar bar3"></div>
+    
     <div class="intro" id="intro"></div> <!-- Introducción con imagen -->
     <header class="header">
       <h1 class="heading">
@@ -32,68 +71,70 @@
         <span class="heading-subtext">8-3-2025</span>
       </h1>
     </header>
-    <a data-scroll class="fixed-button" href="#rsvp" id="rsvpButton" style="display: none;">Confirmar</a> 
-    <section class="section">
-      <h2 class="sub-heading">Resumen</h2>
-      <p>Nos vamos a casar en la Asosiación italiana Montazzoli en el barrio de Loma Hermosa.
-      </p>
-    </section>
-    <section class="section">
-      <h2 class="sub-heading">Los detalles</h2>
-      <div class="details">
-        <i class="fas fa-calendar-check"></i>
-        <h3 class="details-heading">Cuando</h3>
-        <p>8 de Marzo de 2025 a las 11:00hs</p>
-      </div>
-      <div class="details">
-        <i class="fas fa-map-marked-alt"></i>
-        <h3 class="details-heading">Ubicación</h3>
-        <p><a rel="noopener" href="#">José Morganti 8210</a>, Loma Hermosa, Provincia de Buenos Aires</p>
-        <img class="resort-image" src="./img/resort.jpeg" alt="Resort" />
-      </div>
-      <div class="details">
-        <i class="fas fa-random"></i>
-        <h3 class="details-heading">Como nos conocimos</h3>
-        <p>Nos conocimos en la iglesia de la que ambos somos miembros</p>
-        <p>El Señor quiso que nos conozcamos como hermanos y ahora en su gracia vamos a ser una sola carne.</p>
-      </div>
-      <div class="details">
-        <i class="fas fa-user"></i>
-        <h3 class="details-heading">Código de vestimenta</h3>
-        <p>Para las mujeres les pedimos que no se vistan de color blanco</p>
-        <p>En la medida de sus posibilidades venir vestido elegante aunque no es obligatorio</p>
-      </div>
-      <div class="details">
-        <i class="fas fa-gift"></i>
-        <h3 class="details-heading">Regalos</h3>
-        <p>Si desean hacer algún regalo puede hacerlo a traves de nuestra cuenta bancaria o en efectivo</p>
-        <p>Alias: cata.taxi.afirma.mp</p>
-      </div>
-      <div class="details">
-        <i class="fas fa-reply"></i>
-        <h3 class="details-heading" id="rsvp">Confirmar</h3>
-        <a href="https://docs.google.com/forms/d/e/1FAIpQLSemiOoR5t6xNKalM268zzhV7inx2gDlDD5z-gIk4SI2V5jNvQ/viewform" class="rsvp-button">Confirmar</a>
-      </div>
-    </section>
+    <div class="content">
+      <!-- Contenido normal de la página -->
+      <section class="section">
+        <h2 class="sub-heading">Resumen</h2>
+        <p>Nos vamos a casar en la Asosiación italiana Montazzoli en el barrio de Loma Hermosa.</p>
+      </section>
+      <!-- ... resto del contenido ... -->
+    </div>
+    
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js"></script>
-    <script src="./js/smooth-scroll.polyfills.min.js"></script>
-    <script defer>
-      var scroll = new SmoothScroll('a[href*="#"]');
-      var rsvpButton = document.getElementById('rsvpButton')
-      rsvpButton.addEventListener('click',hideButton,false);
-
-      function hideButton() {
-        rsvpButton.style.display = 'none';
-      }
-
-      // Animación de la introducción
+    <script>
+      // Animación de la introducción y las barras
       window.onload = function() {
-        setTimeout(function() { // Esperar 3 segundos antes de iniciar la animación
-          gsap.to("#intro", { duration: 1, opacity: 0, onComplete: function() {
-            document.getElementById('intro').style.display = 'none'; // Ocultar el div después de la animación
-            rsvpButton.style.display = 'block'; // Mostrar el botón de confirmar
-          }});
-        }, 3000); // 3000 milisegundos = 3 segundos
+        // Mostrar la introducción
+        gsap.to("#intro", { duration: 1, opacity: 1 });
+
+        // Esperar 5 segundos antes de iniciar la animación de las barras blancas
+        setTimeout(() => {
+          const whiteBars = [
+            document.getElementById('whiteBar1'),
+            document.getElementById('whiteBar2'),
+            document.getElementById('whiteBar3')
+          ];
+
+          // Animar las barras blancas
+          whiteBars.forEach((bar, index) => {
+            gsap.to(bar, { duration: 0.5, height: "100%", delay: index * 0.5 }); // Crecer hacia abajo
+          });
+
+          // Esperar a que las barras blancas terminen de crecer
+          setTimeout(() => {
+            // Ocultar las barras blancas
+            whiteBars.forEach((bar) => {
+              gsap.to(bar, { duration: 0.5, height: "0%", delay: 0.5 }); // Colapsar hacia arriba
+            });
+
+            // Iniciar la animación de las barras grises después de que las barras blancas se oculten
+            setTimeout(() => {
+              const bars = document.querySelectorAll('.transition-bar');
+
+              // Ocultar la introducción antes de la animación de las barras
+              gsap.to("#intro", { duration: 0, display: 'none' }); // Ocultar la introducción
+
+              // Desplegar las barras grises
+              bars.forEach((bar, index) => {
+                // Animar la barra gris
+                gsap.to(bar, { duration: 0.5, height: "100%", stagger: 0.2, delay: index * 0.5 }); // Desplegar desde arriba
+
+                // Colapsar la barra gris
+                gsap.to(bar, { 
+                  duration: 0.5, 
+                  height: "0%", 
+                  delay: (index + 1) * 0.5, // Decrecer después de que la barra haya crecido
+                  onComplete: function() {
+                    // Mostrar el contenido normal después de que todas las barras hayan terminado de colapsar
+                    if (index === bars.length - 1) {
+                      gsap.to(".content", { duration: 0, display: 'block' }); // Mostrar el contenido normal
+                    }
+                  }
+                }); // Colapsar hacia arriba
+              });
+            }, 500); // Esperar a que las barras blancas se oculten
+          }, 1500); // Esperar a que las barras blancas terminen de crecer
+        }, 5000); // 5000 milisegundos = 5 segundos
       };
     </script>
   </body>
