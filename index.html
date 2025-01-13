@@ -6,6 +6,7 @@
     <link rel="stylesheet" type="text/css" href="theme.css"> 
     <link rel="stylesheet" type="text/css" href="./icons/css/all.min.css"> 
     <link href="https://fonts.googleapis.com/css?family=Lobster&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <style>
       /* Estilo para las barras de transición */
@@ -85,15 +86,24 @@
           <h3 class="details-heading">Cuando</h3>
           <p>8 de Marzo del 2025</p>  
           <p>de 11:00hs a 18:00hs</p>
+          <video class="resort-video" autoplay muted loop style="max-height: 600px;">
+              <source src="./video/calendario.mp4" type="video/mp4"> <!-- Asegúrate de que la ruta y el tipo de video sean correctos -->
+              Tu navegador no soporta el elemento de video.
+          </video>
+          <div id="countdown" class="countdown">
+            <h3>Cuenta Regresiva para el Gran Día:</h3>
+            <div id="timer">
+              <span id="days"></span> días 
+              <span id="hours"></span> horas 
+              <span id="minutes"></span> minutos 
+              <span id="seconds"></span> segundos
+            </div>
+          </div>
         </div>
         <div class="details">
           <i class="fas fa-map-marked-alt"></i>
           <h3 class="details-heading">Ubicación</h3>
           <p><a rel="noopener" href="https://maps.app.goo.gl/LGnd7Mo4er5UwsyN9">José Morganti 8210</a>, Loma Hermosa, Provincia de Buenos Aires</p>
-          <video class="resort-video" autoplay muted loop style="max-height: 600px;">
-              <source src="./video/calendario.mp4" type="video/mp4"> <!-- Asegúrate de que la ruta y el tipo de video sean correctos -->
-              Tu navegador no soporta el elemento de video.
-          </video>
         </div>
         <div class="details">
           <i class="fas fa-random"></i>
@@ -119,6 +129,7 @@
           <a href="https://docs.google.com/forms/d/e/1FAIpQLSemiOoR5t6xNKalM268zzhV7inx2gDlDD5z-gIk4SI2V5jNvQ/viewform" class="rsvp-button">Confirmar</a>
         </div>
       </section>
+      <!-- Nueva sección para la cuenta regresiva -->
     </div>
     
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js"></script>
@@ -186,6 +197,31 @@
         }, 500); // Esperar a que las barras blancas terminen de crecer
       }, 3000); // 3000 milisegundos = 5 segundos
     };
+
+    // Configuración de la cuenta regresiva
+    const countdownDate = new Date("Mar 8, 2025 11:00:00").getTime();
+    const countdownFunction = setInterval(function() {
+      const now = new Date().getTime();
+      const distance = countdownDate - now;
+
+      // Cálculo de días, horas, minutos y segundos
+      const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+      const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+      // Mostrar los resultados en los elementos correspondientes
+      document.getElementById("days").innerHTML = days;
+      document.getElementById("hours").innerHTML = hours;
+      document.getElementById("minutes").innerHTML = minutes;
+      document.getElementById("seconds").innerHTML = seconds;
+
+      // Si la cuenta regresiva ha terminado, mostrar un mensaje
+      if (distance < 0) {
+        clearInterval(countdownFunction);
+        document.getElementById("timer").innerHTML = "¡El gran día ha llegado!";
+      }
+    }, 1000);
   </script>
 </body>
 </html>
