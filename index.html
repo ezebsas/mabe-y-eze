@@ -7,18 +7,35 @@
     <link rel="stylesheet" type="text/css" href="./icons/css/all.min.css"> 
     <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+      /* Estilo para la introducción */
+      .intro {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-image: url('./img/intro-image.jpg'); /* Cambia la ruta a tu imagen */
+        background-color: #dee7e6; /* Color de fondo sólido */
+        background-repeat: no-repeat; /* Evitar que la imagen se repita */
+        background-size: contain; /* Cambiado a contain para evitar recortes y estiramientos */
+        background-position: center; /* Centrar la imagen */
+        z-index: 9999; /* Asegúrate de que esté por encima de otros elementos */
+      }
+    </style>
   </head>
   <body>
+    <div class="intro" id="intro"></div> <!-- Introducción con imagen -->
     <header class="header">
       <h1 class="heading">
         Eze y Mabe
         <span class="heading-subtext">8-3-2025</span>
       </h1>
     </header>
-    <a data-scroll class="fixed-button" href="#rsvp" id="rsvpButton">Confirmación</a> 
+    <a data-scroll class="fixed-button" href="#rsvp" id="rsvpButton" style="display: none;">Confirmar</a> 
     <section class="section">
       <h2 class="sub-heading">Resumen</h2>
-      <p>Nos vamos a casar el 8 de Marzo de 2025 en la Asosiación italiana Montazzoli en el barrio de Loma Hermosa.
+      <p>Nos vamos a casar en la Asosiación italiana Montazzoli en el barrio de Loma Hermosa.
       </p>
     </section>
     <section class="section">
@@ -37,8 +54,8 @@
       <div class="details">
         <i class="fas fa-random"></i>
         <h3 class="details-heading">Como nos conocimos</h3>
-        <p>Nos conocimos en la Iglesia Bautista Victoria Ciudadela de la que ambos somos miembros</p>
-        <p>El Señor quiso que nos conozcamos como hermanos y ahora en su gracia nos vamos a casar.</p>
+        <p>Nos conocimos en la iglesia de la que ambos somos miembros</p>
+        <p>El Señor quiso que nos conozcamos como hermanos y ahora en su gracia vamos a ser una sola carne.</p>
       </div>
       <div class="details">
         <i class="fas fa-user"></i>
@@ -54,10 +71,11 @@
       </div>
       <div class="details">
         <i class="fas fa-reply"></i>
-        <h3 class="details-heading" id="rsvp">Confirmación</h3>
-        <a href="https://docs.google.com/forms/d/e/1FAIpQLSemiOoR5t6xNKalM268zzhV7inx2gDlDD5z-gIk4SI2V5jNvQ/viewform" class="rsvp-button">Confirmación</a>
+        <h3 class="details-heading" id="rsvp">Confirmar</h3>
+        <a href="https://docs.google.com/forms/d/e/1FAIpQLSemiOoR5t6xNKalM268zzhV7inx2gDlDD5z-gIk4SI2V5jNvQ/viewform" class="rsvp-button">Confirmar</a>
       </div>
     </section>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js"></script>
     <script src="./js/smooth-scroll.polyfills.min.js"></script>
     <script defer>
       var scroll = new SmoothScroll('a[href*="#"]');
@@ -66,7 +84,17 @@
 
       function hideButton() {
         rsvpButton.style.display = 'none';
-      }   
+      }
+
+      // Animación de la introducción
+      window.onload = function() {
+        setTimeout(function() { // Esperar 3 segundos antes de iniciar la animación
+          gsap.to("#intro", { duration: 1, opacity: 0, onComplete: function() {
+            document.getElementById('intro').style.display = 'none'; // Ocultar el div después de la animación
+            rsvpButton.style.display = 'block'; // Mostrar el botón de confirmar
+          }});
+        }, 3000); // 3000 milisegundos = 3 segundos
+      };
     </script>
   </body>
 </html>
