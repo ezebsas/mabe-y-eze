@@ -5,7 +5,7 @@
     <title>Casamiento de Ezequiel y Mabel</title>
     <link rel="stylesheet" type="text/css" href="theme.css"> 
     <link rel="stylesheet" type="text/css" href="./icons/css/all.min.css"> 
-    <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Lobster&display=swap" rel="stylesheet">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <style>
       /* Estilo para las barras de transición */
@@ -15,7 +15,7 @@
         width: 33.33%;
         height: 0; /* Inicialmente en 0 para el efecto de despliegue */
         background-color: #dee7e6; /* Color de fondo de las barras grises */
-        z-index: 9996; /* Debajo de la introducción */
+        z-index: 9997; /* Debajo de la introducción */
       }
       .bar1 { left: 0; }
       .bar2 { left: 33.33%; }
@@ -27,8 +27,8 @@
         top: 0;
         width: 33.33%;
         height: 0; /* Inicialmente en 0 */
-        background-color: white; /* Color de fondo blanco */
-        z-index: 9995; /* Debajo de las barras grises */
+        background-color: #383838; /* Color de fondo blanco */
+        z-index: 9996; /* Debajo de las barras grises */
       }
       .white-bg1 { left: 0; }
       .white-bg2 { left: 33.33%; }
@@ -44,9 +44,9 @@
         background-image: url('./img/intro-image.jpg'); /* Cambia la ruta a tu imagen */
         background-color: #dee7e6; /* Color de fondo sólido */
         background-repeat: no-repeat; /* Evitar que la imagen se repita */
-        background-size: cover; /* Cambiado a cover para cubrir toda la pantalla */
+        background-size: contain; 
         background-position: center; /* Centrar la imagen */
-        z-index: 9998; /* Asegúrate de que esté por encima de otros elementos */
+        z-index: 9995; /* Asegúrate de que esté por encima de otros elementos */
       }
 
       /* Estilo para el contenido normal */
@@ -67,23 +67,72 @@
     <div class="intro" id="intro"></div> <!-- Introducción con imagen -->
     <header class="header">
       <h1 class="heading">
-        Eze y Mabe
-        <span class="heading-subtext">8-3-2025</span>
+        Nos casamos
+        <span class="heading-subtext">¿Venís?</span>
       </h1>
     </header>
     <div class="content">
-      <!-- Contenido normal de la página -->
+      <a data-scroll class="fixed-button" href="#rsvp" id="rsvpButton" style="display: none;">Confirmar</a> 
       <section class="section">
         <h2 class="sub-heading">Resumen</h2>
-        <p>Nos vamos a casar en la Asosiación italiana Montazzoli en el barrio de Loma Hermosa.</p>
+        <p>Nos vamos a casar en la Asosiación italiana Montazzoli en el barrio de Loma Hermosa.
+        </p>
       </section>
-      <!-- ... resto del contenido ... -->
+      <section class="section">
+        <h2 class="sub-heading">Los detalles</h2>
+        <div class="details">
+          <i class="fas fa-calendar-check"></i>
+          <h3 class="details-heading">Cuando</h3>
+          <p>8 de Marzo del 2025</p>  
+          <p>de 11:00hs a 18:00hs</p>
+        </div>
+        <div class="details">
+          <i class="fas fa-map-marked-alt"></i>
+          <h3 class="details-heading">Ubicación</h3>
+          <p><a rel="noopener" href="https://maps.app.goo.gl/LGnd7Mo4er5UwsyN9">José Morganti 8210</a>, Loma Hermosa, Provincia de Buenos Aires</p>
+          <video class="resort-video" autoplay muted loop style="max-height: 600px;">
+              <source src="./video/calendario.mp4" type="video/mp4"> <!-- Asegúrate de que la ruta y el tipo de video sean correctos -->
+              Tu navegador no soporta el elemento de video.
+          </video>
+        </div>
+        <div class="details">
+          <i class="fas fa-random"></i>
+          <h3 class="details-heading">Como nos conocimos</h3>
+          <p>Nos conocimos en la iglesia de la que ambos somos miembros</p>
+          <p>El Señor quiso que nos conozcamos como hermanos y ahora en su gracia vamos a ser una sola carne.</p>
+        </div>
+        <div class="details">
+          <i class="fas fa-user"></i>
+          <h3 class="details-heading">Código de vestimenta</h3>
+          <p>Para las mujeres les pedimos que no se vistan de color blanco</p>
+          <p>En la medida de sus posibilidades venir vestido elegante aunque no es obligatorio</p>
+        </div>
+        <div class="details">
+          <i class="fas fa-gift"></i>
+          <h3 class="details-heading">Regalos</h3>
+          <p>Si desean hacer algún regalo puede hacerlo a traves de nuestra cuenta bancaria o en efectivo</p>
+          <p>Alias: cata.taxi.afirma.mp</p>
+        </div>
+        <div class="details">
+          <i class="fas fa-reply"></i>
+          <h3 class="details-heading" id="rsvp">Confirmar</h3>
+          <a href="https://docs.google.com/forms/d/e/1FAIpQLSemiOoR5t6xNKalM268zzhV7inx2gDlDD5z-gIk4SI2V5jNvQ/viewform" class="rsvp-button">Confirmar</a>
+        </div>
+      </section>
     </div>
     
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js"></script>
-    <script>
+    <script src="./js/smooth-scroll.polyfills.min.js"></script>
+    <script defer>
+      var scroll = new SmoothScroll('a[href*="#"]');
+      var rsvpButton = document.getElementById('rsvpButton')
+      rsvpButton.addEventListener('click',hideButton,false);
+      function hideButton() {
+        rsvpButton.style.display = 'none';
+      }
       // Animación de la introducción y las barras
       window.onload = function() {
+        const velAnimacion = 0.1; // Velocidad de la animación en segundos
         // Mostrar la introducción
         gsap.to("#intro", { duration: 1, opacity: 1 });
 
@@ -97,45 +146,46 @@
 
           // Animar las barras blancas
           whiteBars.forEach((bar, index) => {
-            gsap.to(bar, { duration: 0.5, height: "100%", delay: index * 0.5 }); // Crecer hacia abajo
+            gsap.to(bar, { duration: velAnimacion, height: "100%", delay: index * velAnimacion }); // Crecer hacia abajo
           });
 
           // Esperar a que las barras blancas terminen de crecer
           setTimeout(() => {
             // Ocultar las barras blancas
-            whiteBars.forEach((bar) => {
-              gsap.to(bar, { duration: 0.5, height: "0%", delay: 0.5 }); // Colapsar hacia arriba
-            });
 
             // Iniciar la animación de las barras grises después de que las barras blancas se oculten
+            const bars = document.querySelectorAll('.transition-bar');
+
+            // Ocultar la introducción antes de la animación de las barras
+            gsap.to("#intro", { duration: 0, display: 'none' }); // Ocultar la introducción
+
+
+            // Desplegar las barras grises
+            bars.forEach((bar, index) => {
+              // Animar la barra gris
+              gsap.to(bar, { duration: velAnimacion, height: "100%", delay: index * velAnimacion }); // Desplegar desde arriba
+
+            });
             setTimeout(() => {
-              const bars = document.querySelectorAll('.transition-bar');
-
-              // Ocultar la introducción antes de la animación de las barras
-              gsap.to("#intro", { duration: 0, display: 'none' }); // Ocultar la introducción
-
-              // Desplegar las barras grises
+              gsap.to(".content", { duration: 0, display: 'block' }); // Mostrar el contenido normal
+              whiteBars.forEach((bar) => {
+                gsap.to(bar, { duration: 0, height: "0%"}); // Colapsar hacia arriba
+              });
+              // Colapsar la barra gris
               bars.forEach((bar, index) => {
-                // Animar la barra gris
-                gsap.to(bar, { duration: 0.5, height: "100%", stagger: 0.2, delay: index * 0.5 }); // Desplegar desde arriba
-
-                // Colapsar la barra gris
                 gsap.to(bar, { 
-                  duration: 0.5, 
+                  duration: velAnimacion, 
                   height: "0%", 
-                  delay: (index + 1) * 0.5, // Decrecer después de que la barra haya crecido
+                  delay: (index + 1) * velAnimacion, // Decrecer después de que la barra haya crecido
                   onComplete: function() {
-                    // Mostrar el contenido normal después de que todas las barras hayan terminado de colapsar
-                    if (index === bars.length - 1) {
-                      gsap.to(".content", { duration: 0, display: 'block' }); // Mostrar el contenido normal
-                    }
+                    rsvpButton.style.display = 'block'; // Mostrar el botón de confirmar
                   }
                 }); // Colapsar hacia arriba
               });
-            }, 500); // Esperar a que las barras blancas se oculten
-          }, 1500); // Esperar a que las barras blancas terminen de crecer
-        }, 5000); // 5000 milisegundos = 5 segundos
-      };
-    </script>
-  </body>
+            }, 400); // 
+        }, 500); // Esperar a que las barras blancas terminen de crecer
+      }, 3000); // 3000 milisegundos = 5 segundos
+    };
+  </script>
+</body>
 </html>
