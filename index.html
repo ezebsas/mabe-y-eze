@@ -9,53 +9,6 @@
     <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Lobster+Two:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <style>
-      /* Estilo para las barras de transición */
-      .transition-bar {
-        position: fixed;
-        top: 0;
-        width: 33.33%;
-        height: 0; /* Inicialmente en 0 para el efecto de despliegue */
-        background-color: #dee7e6; /* Color de fondo de las barras grises */
-        z-index: 9997; /* Debajo de la introducción */
-      }
-      .bar1 { left: 0; }
-      .bar2 { left: 33.33%; }
-      .bar3 { left: 66.66%; }
-
-      /* Estilo para las barras blancas */
-      .white-bar {
-        position: fixed;
-        top: 0;
-        width: 33.33%;
-        height: 0; /* Inicialmente en 0 */
-        background-color: #383838; /* Color de fondo blanco */
-        z-index: 9996; /* Debajo de las barras grises */
-      }
-      .white-bg1 { left: 0; }
-      .white-bg2 { left: 33.33%; }
-      .white-bg3 { left: 66.66%; }
-
-      /* Estilo para la introducción */
-      .intro {
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background-image: url('./img/intro-image.jpg'); /* Cambia la ruta a tu imagen */
-        background-color: #dee7e6; /* Color de fondo sólido */
-        background-repeat: no-repeat; /* Evitar que la imagen se repita */
-        background-size: contain; 
-        background-position: center; /* Centrar la imagen */
-        z-index: 9995; /* Asegúrate de que esté por encima de otros elementos */
-      }
-
-      /* Estilo para el contenido normal */
-      .content {
-        display: none; /* Ocultar el contenido normal inicialmente */
-      }
-    </style>
   </head>
   <body>
     <div class="white-bar white-bg1" id="whiteBar1"></div> <!-- Barra blanca 1 -->
@@ -81,8 +34,8 @@
           <h3 class="details-heading">Cuándo</h3>
           <p>8 de Marzo de 2025</p>  
           <p>de 11:00 a 18:00 hs</p>
-          <video class="resort-video" autoplay muted loop style="max-height: 600px;">
-              <source src="./video/calendario.mp4" type="video/mp4"> <!-- Asegúrate de que la ruta y el tipo de video sean correctos -->
+          <video class="resort-video" autoplay muted loop playsinline style="max-height: 600px;">
+              <source src="./video/calendario.mp4" type="video/mp4">
               Tu navegador no soporta el elemento de video.
           </video>
           <div id="countdown" class="countdown">
@@ -135,7 +88,6 @@
         <h2 class="heading-subtext">"Porque de él, y por él, y para él, son todas las cosas. A él sea la gloria por los siglos. Amén."</h2>
         <h3 class="heading-subtext">Romanos 11:36</h3>
       </footer>
-      <!-- Nueva sección para la cuenta regresiva -->
     </div>
     
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js"></script>

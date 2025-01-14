@@ -161,3 +161,48 @@ color: rgb(119, 67, 67); /* Color celeste */
 footer {
   padding-bottom: 3em; /* Ajusta el valor según sea necesario */
 }
+
+.transition-bar {
+    position: fixed;
+    top: 0;
+    width: 33.33%;
+    height: 0; /* Inicialmente en 0 para el efecto de despliegue */
+    background-color: #dee7e6; /* Color de fondo de las barras grises */
+    z-index: 9997; /* Debajo de la introducción */
+}
+.bar1 { left: 0; }
+.bar2 { left: 33.33%; }
+.bar3 { left: 66.66%; }
+
+/* Estilo para las barras blancas */
+.white-bar {
+    position: fixed;
+    top: 0;
+    width: 33.33%;
+    height: 0; /* Inicialmente en 0 */
+    background-color: #383838; /* Color de fondo blanco */
+    z-index: 9996; /* Debajo de las barras grises */
+}
+.white-bg1 { left: 0; }
+.white-bg2 { left: 33.33%; }
+.white-bg3 { left: 66.66%; }
+
+/* Estilo para la introducción */
+.intro {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('./img/intro-image.jpg'); /* Cambia la ruta a tu imagen */
+    background-color: #dee7e6; /* Color de fondo sólido */
+    background-repeat: no-repeat; /* Evitar que la imagen se repita */
+    background-size: contain; 
+    background-position: center; /* Centrar la imagen */
+    z-index: 9995; /* Asegúrate de que esté por encima de otros elementos */
+}
+
+/* Estilo para el contenido normal */
+.content {
+    display: none; /* Ocultar el contenido normal inicialmente */
+}
