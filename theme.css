@@ -38,9 +38,10 @@ html, body{
 .heading-subtext{
     color: black;
     display: block;
-    font-family: 'Lobster';
+    font-family: 'Lobster Two';
     font-size: 2em;
     margin-bottom: 1em;
+    font-weight: 100;
 }
 .fixed-button{
     background: rgba(20,20,20,.5);
@@ -125,8 +126,8 @@ color: #0004ff; /* Color celeste */
 .dorado-icon {
 color: gold; /* Color celeste */
 }
-.violeta-icon {
-color: violet; /* Color celeste */
+.marron-icon {
+color: brown; /* Color celeste */
 }
 .militar-icon {
     color: #4B5320; /* Color verde militar */
