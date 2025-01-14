@@ -72,21 +72,21 @@
     <div class="content">
       <a data-scroll class="fixed-button" href="#rsvp" id="rsvpButton" style="display: none;">Confirmar</a> 
       <section class="section">
-        <h3 class="heading-subtext">¡Estamos emocionados de celebrar juntos nuestra boda y nos encantaría compartirlo con ustedes!</h3>
+        <h3 class="heading-subtext">¡Estamos emocionados de celebrar juntos nuestra boda y nos encantaría compartirla con ustedes!</h3>
       </section>
       <section class="section">
         <h2 class="sub-heading">Los detalles</h2>
         <div class="details">
           <i class="fas fa-calendar-check dorado-icon"></i>
-          <h3 class="details-heading">Cuando</h3>
-          <p>8 de Marzo del 2025</p>  
-          <p>de 11:00hs a 18:00hs</p>
+          <h3 class="details-heading">Cuándo</h3>
+          <p>8 de Marzo de 2025</p>  
+          <p>de 11:00 a 18:00 hs</p>
           <video class="resort-video" autoplay muted loop style="max-height: 600px;">
               <source src="./video/calendario.mp4" type="video/mp4"> <!-- Asegúrate de que la ruta y el tipo de video sean correctos -->
               Tu navegador no soporta el elemento de video.
           </video>
           <div id="countdown" class="countdown">
-            <h3>Cuenta Regresiva para el Gran Día:</h3>
+            <h3>Cuenta regresiva para el gran día:</h3>
             <div id="timer">
               <span id="days"></span> días 
               <span id="hours"></span> horas 
@@ -102,20 +102,20 @@
         </div>
         <div class="details">
           <i class="fas fa-random militar-icon"></i>
-          <h3 class="details-heading">Como nos conocimos</h3>
+          <h3 class="details-heading">Cómo nos conocimos</h3>
           <p>Nos conocimos en la iglesia de la que ambos somos miembros</p>
-          <p>El Señor quiso que nos conozcamos como hermanos y ahora en su gracia vamos a ser una sola carne.</p>
+          <p>El Señor quiso que nos conociéramos como hermanos y ahora en su gracia vamos a ser una sola carne.</p>
         </div>
         <div class="details">
           <i class="fas fa-user marron-icon"></i>
           <h3 class="details-heading">Código de vestimenta</h3>
-          <p>Para las mujeres les pedimos que no se vistan de color blanco</p>
-          <p>En la medida de sus posibilidades venir vestido elegante aunque no es obligatorio</p>
+          <p>Para las mujeres, les pedimos que no se vistan de color blanco</p>
+          <p>En la medida de sus posibilidades venir vestido elegante, aunque no es obligatorio</p>
         </div>
         <div class="details">
           <i class="fas fa-gift celeste-icon"></i>
           <h3 class="details-heading">Regalos</h3>
-          <p>Si desean hacer algún regalo puede hacerlo a traves de nuestra cuenta bancaria o en efectivo</p>
+          <p>Si desean hacer algún regalo puede hacerlo a través de nuestra cuenta bancaria o en efectivo</p>
           <p>Alias: cata.taxi.afirma.mp</p>
         </div>
         <div class="details">
@@ -146,6 +146,9 @@
           gsap.to("#intro", { duration: 1, opacity: 0 });
           gsap.to(".content", { duration: 0, display: 'block' }); // Mostrar el contenido normal
           gsap.set(rsvpButton, { display: 'block' })
+          setTimeout(() => {
+            gsap.set("#intro", { display: 'none' }); // Mostrar el contenido normal
+          }, 1000);
         }, 5000); // 3000 milisegundos = 5 segundos
         /*
         // Esperar 5 segundos antes de iniciar la animación de las barras blancas
