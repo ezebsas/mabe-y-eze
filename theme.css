@@ -112,6 +112,17 @@ html, body{
 .rsvp-button:hover {
     background-color: #0056b3; /* Color de fondo al pasar el mouse */
 }
+.copy-button {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: rgba(255,255,255,0.2); /* Color de fondo */
+    text-decoration: none; /* Sin subrayado */
+    border-radius: 5px; /* Bordes redondeados */
+    border: 1px solid rgba(125, 125, 125, 0.5); /* Borde más fino y semi-transparente */
+}
+.copy-button:hover {
+    background-color: rgba(125,125,125,0.2); /* Color de fondo */
+}
 
 .celeste-icon {
 color: #00BFFF; /* Color celeste */
@@ -134,4 +145,16 @@ color: rgb(119, 67, 67); /* Color celeste */
 }
 .rojo-icon{
     color: red;
+}
+.button-container {
+    display: flex;
+    justify-content: flex-end; /* Alinea los botones a la derecha */
+}
+.flex-container {
+    display: flex;
+    justify-content: space-between; /* Espacio entre el texto y el botón */
+    align-items: center; /* Alinea verticalmente el texto y el botón */
+    text-align: center; /* Centra el texto dentro del contenedor */
+    max-width: 400px; /* Ancho máximo de 150px */
+    margin: 0 auto; /* Centra el contenedor en su padre */
 }

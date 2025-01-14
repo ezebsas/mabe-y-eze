@@ -103,7 +103,7 @@
         <div class="details">
           <i class="fas fa-random militar-icon"></i>
           <h3 class="details-heading">Cómo nos conocimos</h3>
-          <p>Nos conocimos en la iglesia de la que ambos somos miembros</p>
+          <p>Nos conocimos en la <a href="https://www.ibvciudadela.com/">iglesia</a> de la que ambos somos miembros</p>
           <p>El Señor quiso que nos conociéramos como hermanos y ahora en su gracia vamos a ser una sola carne.</p>
         </div>
         <div class="details">
@@ -116,7 +116,14 @@
           <i class="fas fa-gift celeste-icon"></i>
           <h3 class="details-heading">Regalos</h3>
           <p>Si desean hacer algún regalo puede hacerlo a través de nuestra cuenta bancaria o en efectivo</p>
-          <p>Alias: cata.taxi.afirma.mp</p>
+          <div class="flex-container">
+            <p>Alias: cata.taxi.afirma.mp</p>
+            <button class="copy-button" onclick="copyToClipboard('cata.taxi.afirma.mp')">Copiar</button>
+          </div>
+          <div class="flex-container">
+            <p>CBU: 0000003100057940601369</p>
+            <button class="copy-button" onclick="copyToClipboard('0000003100057940601369')">Copiar</button>
+          </div>
         </div>
         <div class="details">
           <i class="fas fa-reply"></i>
@@ -143,7 +150,7 @@
         gsap.to("#intro", { duration: 1, opacity: 1 });
 
         setTimeout(() => {
-          gsap.to("#intro", { duration: 1, opacity: 0 });
+          gsap.to("#intro", { duration: 3, opacity: 0 });
           gsap.to(".content", { duration: 0, display: 'block' }); // Mostrar el contenido normal
           gsap.set(rsvpButton, { display: 'block' })
           setTimeout(() => {
@@ -228,6 +235,29 @@
         document.getElementById("timer").innerHTML = "¡El gran día ha llegado!";
       }
     }, 1000);
+
+    function copyToClipboard(text) {
+      if (navigator.clipboard) {
+        navigator.clipboard.writeText(text).then(() => {
+          alert('Texto copiado: ' + text);
+        }).catch(err => {
+          console.error('Error al copiar: ', err);
+        });
+      } else {
+        // Fallback para navegadores que no soportan la API del portapapeles
+        const textArea = document.createElement("textarea");
+        textArea.value = text;
+        document.body.appendChild(textArea);
+        textArea.select();
+        try {
+          document.execCommand("copy");
+          alert('Texto copiado: ' + text);
+        } catch (err) {
+          console.error('Error al copiar: ', err);
+        }
+        document.body.removeChild(textArea);
+      }
+    }
   </script>
 </body>
 </html>
