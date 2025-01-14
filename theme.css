@@ -111,3 +111,7 @@ html, body{
 .rsvp-button:hover {
     background-color: #0056b3; /* Color de fondo al pasar el mouse */
 }
+
+.celeste-icon {
+color: #00BFFF; /* Color celeste */
+}
