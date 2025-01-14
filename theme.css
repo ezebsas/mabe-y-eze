@@ -158,3 +158,6 @@ color: rgb(119, 67, 67); /* Color celeste */
     max-width: 400px; /* Ancho máximo de 150px */
     margin: 0 auto; /* Centra el contenedor en su padre */
 }
+footer {
+  padding-bottom: 3em; /* Ajusta el valor según sea necesario */
+}
