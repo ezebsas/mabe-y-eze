@@ -120,5 +120,14 @@ color: #00BFFF; /* Color celeste */
 color: #0004ff; /* Color celeste */
 }
 .rosa-icon {
-color: #e772eb; /* Color celeste */
+color: #0004ff; /* Color celeste */
+}
+.dorado-icon {
+color: gold; /* Color celeste */
+}
+.violeta-icon {
+color: violet; /* Color celeste */
+}
+.militar-icon {
+    color: #4B5320; /* Color verde militar */
 }
