@@ -36,10 +36,10 @@ html, body{
     transform: translateX(-50%);
 }
 .heading-subtext{
-    color: #fff;
+    color: black;
     display: block;
     font-family: 'Lobster';
-    font-size: .6em;
+    font-size: 2em;
     margin-bottom: 1em;
 }
 .fixed-button{
@@ -114,4 +114,8 @@ html, body{
 
 .celeste-icon {
 color: #00BFFF; /* Color celeste */
+}
+
+.azul-icon {
+color: #0004ff; /* Color celeste */
 }
