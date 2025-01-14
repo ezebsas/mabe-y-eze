@@ -72,7 +72,7 @@
     <div class="content">
       <a data-scroll class="fixed-button" href="#rsvp" id="rsvpButton" style="display: none;">Confirmar</a> 
       <section class="section">
-        <h3 class="heading-subtext">Estamos emocionados de celebrar juntos nuestra boda y nos encantaría compartirlo con ustedes</h3>
+        <h3 class="heading-subtext">¡Estamos emocionados de celebrar juntos nuestra boda y nos encantaría compartirlo con ustedes!</h3>
       </section>
       <section class="section">
         <h2 class="sub-heading">Los detalles</h2>
@@ -119,7 +119,7 @@
           <p>Alias: cata.taxi.afirma.mp</p>
         </div>
         <div class="details">
-          <i class="fas fa-reply"></i>
+          <i class="fas fa-reply rojo-icon"></i>
           <h3 class="details-heading" id="rsvp">Confirmar</h3>
           <a href="https://docs.google.com/forms/d/e/1FAIpQLSemiOoR5t6xNKalM268zzhV7inx2gDlDD5z-gIk4SI2V5jNvQ/viewform" class="rsvp-button">Confirmar</a>
         </div>
@@ -142,6 +142,12 @@
         // Mostrar la introducción
         gsap.to("#intro", { duration: 1, opacity: 1 });
 
+        setTimeout(() => {
+          gsap.to("#intro", { duration: 1, opacity: 0 });
+          gsap.to(".content", { duration: 0, display: 'block' }); // Mostrar el contenido normal
+          gsap.set(rsvpButton, { display: 'block' })
+        }, 5000); // 3000 milisegundos = 5 segundos
+        /*
         // Esperar 5 segundos antes de iniciar la animación de las barras blancas
         setTimeout(() => {
           const whiteBars = [
@@ -155,6 +161,7 @@
             gsap.to(bar, { duration: velAnimacion, height: "100%", delay: index * velAnimacion }); // Crecer hacia abajo
           });
 
+          /*
           // Esperar a que las barras blancas terminen de crecer
           setTimeout(() => {
             // Ocultar las barras blancas
@@ -191,6 +198,7 @@
             }, 400); // 
         }, 500); // Esperar a que las barras blancas terminen de crecer
       }, 3000); // 3000 milisegundos = 5 segundos
+      */
     };
 
     // Configuración de la cuenta regresiva
